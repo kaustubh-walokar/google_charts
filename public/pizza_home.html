@@ -5,12 +5,194 @@
     <title>Build Your Pizza</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <script src="javascripts/jquery-3.1.1.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="javascripts/myScript.js"></script>
 </head>
-<body>
-    <div>
-        <h1>Pizza Builder</h1>
+<body class="body">
+<div class="container-fluid">
+    <div class="panel with-nav-tabs panel-default">
+        <div class="panel-heading">
+            <h1>Pizza Builder</h1>
+        </div>
+        <div class="panel-body">
+            <div class="panel with-nav-tabs" id ="myTab">
+                <ul class="nav nav-pills panel-heading center-block col-centered" id ="#navBar">
+                    <li><button type="button" class="btn btn-info btn-arrow-right" href="#tab1default" data-toggle="tab" id="b1">Size & Crust</button></li>
+                    <li><button type="button" class="btn btn-info btn-arrow-right" href="#tab2default" data-toggle="tab" id="b2">Cheeze & Sauce</button></li>
+                    <li><button type="button" class="btn btn-info btn-arrow-right" href="#tab3default" data-toggle="tab" id="b3">Toppings</button></li>
+                </ul>
+                <div class="panel-body">
+                    <div id="pizzaCanvas" class="row">
+                        <!--<canvas width="250" height="250" id="piz_canvas" style="display: block; position: absolute; z-index: 1;"></canvas>-->
+                        <!--<script>-->
+                        <!--var canvas = document.getElementById('piz_canvas');-->
+                        <!--var context = canvas.getContext('2d');-->
+                        <!--var x = 0;-->
+                        <!--var y = 0;-->
+                        <!--var width = 250;-->
+                        <!--var height = 250;-->
+                        <!--var imageObj = new Image();-->
+
+                        <!--imageObj.onload = function() {-->
+                        <!--context.drawImage(imageObj, x, y, width, height);-->
+                        <!--};-->
+                        <!--imageObj.src = '../images/CEPizzaDough_article.jpg';-->
+                        <!--</script>-->
+                        <img src="images/CEPizzaDough_article.jpg" align="center" class="img-responsive col-sm-3 col-centered" id="pizza_base">
+
+                    </div>
+                    <div id="nav_buttons" class="row container-fluid">
+                        <button type="button" class="btn btn-info btn-arrow-left pull-left" href="#tab1default" data-toggle="tab" id="back_button">Back</button>
+                        <button type="button" class="btn btn-info btn-arrow-right pull-right" href="#tab2default" data-toggle="tab" id="next_button">Next</button>
+                    </div>
+                    <div class="tab-content row">
+                        <div class="tab-pane fade in active container-fluid" id="tab1default">
+                            <div class="row">
+                                <h3 class="col-sm-12">CHOOSE SIZE & CRUST</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5>HAND TOSSED</h5>
+                                    Garlic-seasoned crust with a rich, buttery taste.
+                                    <div class="radio">
+                                        <label><input type="radio" name="pizza_size" value ="Hand Tossed Small">Small (10") </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="pizza_size" value ="Hand Tossed Medium">Medium (12") </label>
+                                    </div>
+                                    <div class="radio ">
+                                        <label><input type="radio" name="pizza_size" value ="Hand Tossed Large">Large (14") </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5>HANDMADE PAN</h5>
+                                    Two layers of cheese, toppings to the edge, baked in a pan for a crust that is golden and crispy with a buttery taste.
+                                    <div class="radio">
+                                        <label><input type="radio" name="pizza_size" value ="Handmade Pan Medium">Medium (10") </label>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5>CRUNCHY THIN CRUST</h5>
+                                    Thin enough for the optimum crispy to crunchy ratio.
+                                    <div class="radio">
+                                        <label><input type="radio" name="pizza_size" value ="Thin Crust Small">Small (10") </label>
+                                    </div>
+
+                                    <div class="radio ">
+                                        <label><input type="radio" name="pizza_size" value ="Thin Crust Large">Large (14") </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h5>BROOKLYN STYLE</h5>
+                                    Hand stretched to be big, thin and perfectly foldable.
+                                    <div class="radio">
+                                        <label><input type="radio" name="pizza_size" value ="Broklyn Style Small">Small (10") </label>
+                                    </div>
+
+                                    <div class="radio ">
+                                        <label><input type="radio" name="pizza_size" value ="Broklyn Style xLarge">X-Large (16") </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade in container-fluid" id="tab2default">
+                            <div class="row">
+                                <h3 class="col-sm-12">CHOOSE CHEESE & SAUCE</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>CHEESE?</h5>
+                                    <input type="checkbox" name="cheese" value="Yes" id="cheese_check"> Cheese<br>
+                                    <div id="cheese_amount">
+                                        <select>
+                                            <option value="light">Light</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="extra">Extra</option>
+                                            <option value="double">Double</option>
+                                        </select>
+                                    </div>
+                                    <script >
+
+                                    </script>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>CHOOSE A SAUCE</h5>
+                                    <input type="checkbox" name="sauce" value="Yes" id="sauce_check"> Sauce<br>
+                                    <div id="sauce_options">
+                                        <input type="radio" name="sauce_type" value="tomato"> Robust Inspired Tomato Sauce
+                                        <br>
+                                        <input type="radio" name="sauce_type" value="marinara"> Hearty Marinara Sauce<br>
+                                        <input type="radio" name="sauce_type" value="bbq">  BBQ Sauce<br>
+                                        <input type="radio" name="sauce_type" value="white">  Garlic Parmesan White Sauce<br>
+                                        <input type="radio" name="sauce_type" value="alfredo">  Alfredo Sauce<br>
+                                        <div id="sauce_amount">
+                                            <select>
+                                                <option value="light">Light</option>
+                                                <option value="normal">Normal</option>
+                                                <option value="extra">Extra</option>
+                                                <option value="double">Double</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <script >
+                                        $(function () {
+
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade in container-fluid" id="tab3default">
+                            <div class="row">
+                                <h3 class="col-sm-12">CHOOSE TOPPINGS</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h5>CHOOSE MEATS</h5>
+                                    <input type="checkbox" name="meat" value="Pepperoni"> Pepperoni</input><br>
+                                    <input type="checkbox" name="meat" value="Sliced_Italian_Sausage"> Sliced Italian Sausage</input><br>
+                                    <input type="checkbox" name="meat" value="Philly_Steak"> Philly Steak</input><br>
+                                    <input type="checkbox" name="meat" value="Bacon"> Bacon</input><br>
+                                    <input type="checkbox" name="meat" value="Premium_Chicken"> Premium Chicken</input><br>
+                                    <input type="checkbox" name="meat" value="Italian_Sausage"> Italian Sausage</input><br>
+                                    <input type="checkbox" name="meat" value="Beef"> Beef</input><br>
+                                    <input type="checkbox" name="meat" value="Ham"> Ham</input><br>
+                                    <input type="checkbox" name="meat" value="Salami"> Salami</input><br>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>CHOOSE NON-MEATS</h5>
+                                    <input type="checkbox" name = "non-meat" value="Cheddar Cheese">Cheddar Cheese</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Shredded Parmesan Asiago">Shredded Parmesan Asiago</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Banana Peppers">Banana Peppers</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Garlic">Garlic</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Jalapeno Peppers">Jalapeno Peppers</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Pineapple">Pineapple</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Roasted Red Peppers">Roasted Red Peppers</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Diced Tomatoes">Diced Tomatoes</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Feta Cheese">Feta Cheese</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Shredded Provolone Cheese">Shredded Provolone Cheese</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Black Olives">Black Olives</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Green Peppers">Green Peppers</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Mushrooms">Mushrooms</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Onions">Onions</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Spinach">Spinach</input><br>
+                                    <input type="checkbox" name = "non-meat" value="Hot Sauce">Hot Sauce</input><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="pull-right btn" id = "build">Build</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </body>
 </html>
