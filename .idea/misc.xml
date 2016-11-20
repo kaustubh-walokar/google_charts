@@ -62,16 +62,6 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="true" assert-keyword="false" jdk-15="false">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-  <component name="SbtLocalSettings">
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$/../EXTRA/SCALA" value="1475372880000" />
-      </map>
-    </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">

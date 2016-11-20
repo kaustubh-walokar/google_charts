@@ -658,13 +658,13 @@ var i,
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
 		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
-			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
-			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
+			"*(even|odd|(([+-]|)(\\sankey_data*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
+			"*(\\sankey_data+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
 		// For use in libraries implementing .is()
 		// We use this for POS matching in `select`
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
-			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
+			whitespace + "*((?:-\\sankey_data)?\\sankey_data*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
 
 	rinputs = /^(?:input|select|textarea|button)$/i,
@@ -1340,7 +1340,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
-			if ( el.querySelectorAll("[name=d]").length ) {
+			if ( el.querySelectorAll("[name=sankey_data]").length ) {
 				rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 			}
 
@@ -1692,8 +1692,8 @@ Expr = Sizzle.selectors = {
 			/* matches from matchExpr["CHILD"]
 				1 type (only|nth|...)
 				2 what (child|of-type)
-				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
-				4 xn-component of xn+y argument ([+-]?\d*n|)
+				3 argument (even|odd|\sankey_data*|\sankey_data*n([+-]\sankey_data+)?|...)
+				4 xn-component of xn+y argument ([+-]?\sankey_data*n|)
 				5 sign of xn-component
 				6 x of xn-component
 				7 sign of y-component
